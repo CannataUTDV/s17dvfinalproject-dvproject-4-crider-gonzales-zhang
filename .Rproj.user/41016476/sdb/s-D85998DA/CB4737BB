@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#ui.R\n\nrequire(shiny)\nrequire(shinydashboard)\n\ndashboardPage(\n  dashboardHeader(title = \"KEI\"\n  ),\n  dashboardSidebar(\n    sidebarMenu(\n      menuItem(\"Bachelors to Naturalized\", tabName = \"bachtonat\", icon = icon(\"dashboard\"))\n    )\n  ),\n  dashboardBody(\n    tabItems(\n      # First tab content\n      tabItem(tabName = \"bachtonat\",\n              fluidRow(\n                box(plotOutput(\"plot1\"))\n\n      )\n    )\n  )\n)\n)\n\n",
+    "created" : 1493046105130.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3104031324",
+    "id" : "CB4737BB",
+    "lastKnownWriteTime" : 1493050052,
+    "last_content_update" : 1493050052295,
+    "path" : "C:/Users/Chris/school/DataVisualization/#Assignments/s17dvproject6-dvproject-4-crider-gonzales-zhang/02 Shiny/ui.R",
+    "project_path" : "02 Shiny/ui.R",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

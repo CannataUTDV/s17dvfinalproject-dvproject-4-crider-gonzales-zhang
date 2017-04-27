@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "require(data.world)\nrequire(ggplot2)\n\n\neducation <- query(\n  data.world(propsfile = \"www/.data.world\"),\n  dataset=\"chriscrider/s-17-dv-project-6/\", type=\"sql\",\n  query = \"SELECT * FROM `acs-2015-5-e-education-QueryResult.csv/acs-2015-5-e-education-QueryResult`    as Education\n  join `acs-2015-5-e-foreignbirth-QueryResult` as Citizenship \n  on( `acs-2015-5-e-education-QueryResult`  .State = `acs-2015-5-e-foreignbirth-QueryResult`.State) \"\n  \n) \n\ndf = data.frame(education)\ndf <- na.omit(df)\ndf$kpi_Bach_to_Naturalized <- (df$Bachelors / df$Naturalized)\ndf$bachelors_abv_average <- (df$Bachelors > mean(df$Bachelors))\ndf$kpi_bachNat_Ratio_abv_avg <- (df$kpi_Bach_to_Naturalized > mean(df$kpi_Bach_to_Naturalized))\n\n\n\n#View(df)\n\n\nbachplot <- ggplot(df, aes(State, Naturalized, fill=kpi_bachNat_Ratio_abv_avg))+ \n  #scale_y_discrete(labels = scales::comma) + # no scientific notation\n  geom_bar(stat='identity') + \n  coord_flip() + \n  geom_errorbar(aes(ymax=Bachelors, ymin=Bachelors))\n\n\n\n\nprint(bachplot)",
+    "created" : 1493008083186.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3874417451",
+    "id" : "5AB16E73",
+    "lastKnownWriteTime" : 1493046544,
+    "last_content_update" : 1493046544760,
+    "path" : "C:/Users/Chris/school/DataVisualization/#Assignments/s17dvproject6-dvproject-4-crider-gonzales-zhang/00 Doc/bachnat.R",
+    "project_path" : "00 Doc/bachnat.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

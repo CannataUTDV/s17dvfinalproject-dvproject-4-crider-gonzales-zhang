@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "require(dplyr)\nrequire(ggplot2)\n\nrequire(\"jsonlite\")\nrequire(\"RCurl\")\nrequire(\"ggplot2\")\n\neducation <- query(\n  data.world(propsfile = \"www/.data.world\"),\n  dataset=\"chriscrider/s-17-dv-project-6/\", type=\"sql\",\n  query = \"SELECT * FROM `acs-2015-5-e-education-QueryResult.csv/acs-2015-5-e-education-QueryResult`    \n  join `acs-2015-5-e-foreignbirth-QueryResult` \n  on( `acs-2015-5-e-education-QueryResult`  .State = `acs-2015-5-e-foreignbirth-QueryResult`.State) \"\n  \n) \n\ndf = data.frame(education)\ndf <- na.omit(df)\ndf$kpi_Bach_to_Naturalized <- (df$Bachelors / df$Naturalized)\ndf$bachelors_abv_average <- (df$Bachelors > mean(df$Bachelors))\ndf$kpi_bachNat_Ratio_abv_avg <- (df$kpi_Bach_to_Naturalized > mean(df$kpi_Bach_to_Naturalized))\n\n\n\nserver <- function(input, output) {\n  output$plot1 <- renderPlot({\n    ggplot(df, aes(State, Naturalized, fill=kpi_bachNat_Ratio_abv_avg))+ \n    #scale_y_discrete(labels = scales::comma) + # no scientific notation\n    geom_bar(stat='identity') + \n    coord_flip() + \n    geom_errorbar(aes(ymax=Bachelors, ymin=Bachelors))\n\n})\n  \n}\n\n",
+    "created" : 1493046103276.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3742615905",
+    "id" : "5146A98B",
+    "lastKnownWriteTime" : 1493048646,
+    "last_content_update" : 1493048646896,
+    "path" : "C:/Users/Chris/school/DataVisualization/#Assignments/s17dvproject6-dvproject-4-crider-gonzales-zhang/02 Shiny/server.R",
+    "project_path" : "02 Shiny/server.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
