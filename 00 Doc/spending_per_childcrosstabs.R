@@ -15,7 +15,7 @@ df$Above_Median_SPC <- df$Spending_Per_Child > median(df$Spending_Per_Child)
 df$Elementary_Enrollment_Average <- ifelse (df$Elementary.secondary.enrollment/df$State.population..in.thousands.<=mean(df$Elementary.secondary.enrollment/df$State.population..in.thousands.),"Below Average Enrollment per State Population","Above Average Enrollment per State Population")
 View(df)
 
+cross_tab <- ggplot(df) + geom_text(aes(x = Above_Median_SPC, y=State, label=Spending_Per_Child),size=3)+xlab("Above Median Spending Per Child")+geom_tile(aes(x=Above_Median_SPC, y=State,fill=Elementary_Enrollment_Average), alpha=0.50)
 
-cross_tab <- ggplot(df) + geom_text(aes(x = Above_Median_SPC, y=State, label=Spending_Per_Child),size=1)+xlab("Above Median Spending Per Child")+geom_tile(aes(x=Above_Median_SPC, y=State,fill=Elementary_Enrollment_Average), alpha=0.50)
 print(cross_tab)
 
