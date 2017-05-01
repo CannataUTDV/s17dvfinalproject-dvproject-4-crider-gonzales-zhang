@@ -9,7 +9,9 @@ dashboardPage(
   dashboardSidebar(
     sidebarMenu(
       menuItem("Spending to Bachelors", tabName = "spendtobach", icon = icon("dashboard")),
-      menuItem("Spending by State", tabName = "sps", icon = icon("dashboard"))
+      menuItem("Spending by State", tabName = "sps", icon = icon("dashboard")),
+      menuItem("Spending per Child", tabName="dingy",icon = icon("dashboard")),
+      menuItem("Spending Per Child Boxplot",tabName="dingy2",icon=icon("dashboard"))
       #menuItem("Income Per State", tabName = "rvs", icon = icon("dashboard"))
     )
   ),
@@ -33,10 +35,17 @@ dashboardPage(
               fluidPage(
                 plotOutput("plot3"), br(), plotOutput("plot4")
                 
+              )),
+      tabItem(tabName="dingy",
+              fluidPage(
+                plotOutput("plot5"), br()
+                
+              )),
+      tabItem(tabName="dingy2",
+              fluidPage(
+                plotOutput("plot6"), br()
               ))
-
-      )
 
       
     )
-  )
+  ))
