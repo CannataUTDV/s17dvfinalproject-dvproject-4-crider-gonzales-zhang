@@ -15,6 +15,6 @@ df5$Above_Median_SPC <- df5$Spending_Per_Child > median(df5$Spending_Per_Child)
 
 df5$Elementary_Enrollment_Average <- ifelse (df5$Elementary.secondary.enrollment/df5$State.population..in.thousands.<=mean(df5$Elementary.secondary.enrollment/df5$State.population..in.thousands.),"Below Average Enrollment per State Population","Above Average Enrollment per State Population")
 
-box_plot <- ggplot() +geom_boxplot(aes(x= df5$Above_Median_SPC,y = df5$Spending_Per_Child))
+box_plot <- ggplot() +geom_boxplot(aes(x= df5$Above_Median_SPC,y = df5$Spending_Per_Child)) + xlab("Above Median Spending Per Child") + ylab("Spending Per Child")
 print(box_plot)
 
