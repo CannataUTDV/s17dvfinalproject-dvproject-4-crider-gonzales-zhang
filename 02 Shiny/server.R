@@ -12,8 +12,9 @@ education <- query(
 
 df1 <- data.frame(education)
 df1 <- na.omit(df1)
+
 df1$pps_abv_avg <- (df1$X2014.PPCS > mean(df1$X2014.PPCS))
-df1$bach_abv_avg <- (df1$Bachelors >= mean(df1$Bachelors))
+df1$bach_abv_avg <- (df1$Bachelors > 500000)
 df1$kpi_bach_ratio <- (df1$Bachelors / df1$Current.Spending)
 highbardf <- dplyr::filter(df1, pps_abv_avg == TRUE)
 lowbardf <- dplyr::filter(df1, pps_abv_avg == FALSE)
@@ -27,7 +28,8 @@ server <- function(input, output) {
       geom_bar(stat='identity') +
       ylab('Per Child Spending') +
       coord_flip() +
-      ggtitle('Bachcelors Performance - High Spending States')
+      ggtitle('Bachcelors Performance - High Spending States') +
+      geom_text(aes(label=Bachelors))
 
     
   })
@@ -36,7 +38,8 @@ server <- function(input, output) {
       geom_bar(stat='identity') +
       ylab('Per Child Spending') +
       coord_flip() +
-      ggtitle('Bachelors Performance - Low Spending States')
+      ggtitle('Bachelors Performance - Low Spending States') + 
+      geom_text(aes(label=Bachelors))
   })
   
   output$plot3 <- renderPlot({
