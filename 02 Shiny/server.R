@@ -79,7 +79,7 @@ server <- function(input, output) {
   })
   output$plot5 <-renderPlot({ggplot(df) + geom_text(aes(x = Above_Median_SPC, y=State, label=Spending_Per_Child),size=3)+xlab("Above Median Spending Per Child")+geom_tile(aes(x=Above_Median_SPC, y=State,fill=Elementary_Enrollment_Average), alpha=0.50)})
 
-  output$plot6 <-renderPlot({box_plot <- ggplot() +geom_boxplot(aes(x= df5$Above_Median_SPC,y = df5$Spending_Per_Child))})
+  output$plot6 <-renderPlot({box_plot <- ggplot(df5) +geom_boxplot(aes(x= df5$Above_Median_SPC,y = df5$Spending_Per_Child))})
 
 
 }
