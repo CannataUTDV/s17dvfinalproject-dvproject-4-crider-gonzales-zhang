@@ -4,8 +4,8 @@ require(shiny)
 require(shinydashboard)
 
 dashboardPage(
-  dashboardHeader(title = "Economic Factors and Education"
-  ),
+  dashboardHeader(title = "Final"
+  ), 
   dashboardSidebar(
     sidebarMenu(
       menuItem("Spending to Bachelors", tabName = "spendtobach", icon = icon("dashboard")),
