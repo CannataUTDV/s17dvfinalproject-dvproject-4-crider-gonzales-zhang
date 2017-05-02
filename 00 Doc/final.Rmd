@@ -372,3 +372,5 @@ ggplot(incomestuff, aes(x=Income, y=`2014 PPCS`)) + geom_point(shape=1) + geom_s
 
 To recreate this in Tableau, you will need to drag Income to Columns and 2014 PPCS to Rows. You can also add State to the labels mark in order to see the dots clearer. To add the line of regression, click Analysis at the top, click on Trends and add a trend line. 
 
+To see all of the above charts in action, please visit [this site](isaacgonzalez.shinyapps.io/final).
+

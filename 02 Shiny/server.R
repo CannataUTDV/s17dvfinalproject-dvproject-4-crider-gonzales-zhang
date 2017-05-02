@@ -57,19 +57,25 @@ server <- function(input, output) {
   })
   
   output$plot3 <- renderPlot({
-       ggplot(df1) + geom_histogram(aes(x = `X2014.PPCS`, fill = I('dodgerblue4'), col=I('red'))) + 
-      xlab('Per Child Spending') + 
-      ylab('Bin of States') +
-      ggtitle('Per Pupil Spending Range')
-  })
-  
-  output$plot4 <- renderPlot({
+    
     ggplot(df1, aes(x=State,  y=kpi_bach_ratio, fill = kpi_bach_ratio)) + 
       geom_bar(stat='identity') + 
       theme(axis.text.x=element_text(angle=90, size=10, vjust=0.5))+
       ylab('Bachelor Attainment to Spending Ratio') + 
       ggtitle('KPI Bachelor Ratio Performance by State')
   })
+  
+  output$plot4 <- renderPlot({
+    
+    brush = brushOpts(id="plot_brush", delayType = "throttle", delay = 30)
+    bdf=brushedPoints(df1, input$plot_brush)
+    
+    if( !is.null(input$plot_brush) ) {
+      df1 %>% dplyr::filter(kpi_bach_ratio %in% bdf[, "kpi_bach_ratio"]) %>% ggplot() + geom_histogram(aes(x=X2014.PPCS, fill = I("blue"), colour=I('red'))) + xlab('Per Child Spending') + ylab('Bin of Selected KPI Values') + ggtitle('Per Pupil Spending Range')
+    }
+    
+  })
+  
   output$plot5 <-renderPlot({ggplot(df) + geom_text(aes(x = Above_Median_SPC, y=State, label=Spending_Per_Child),size=3)+xlab("Above Median Spending Per Child")+geom_tile(aes(x=Above_Median_SPC, y=State,fill=Elementary_Enrollment_Average), alpha=0.50)})
 
   output$plot6 <-renderPlot({ ggplot(df5) +geom_boxplot(aes(x= df5$Above_Median_SPC,y = df5$Spending_Per_Child))})

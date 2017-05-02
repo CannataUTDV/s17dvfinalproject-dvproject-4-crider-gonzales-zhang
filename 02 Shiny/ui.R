@@ -21,7 +21,7 @@ dashboardPage(
       # First tab content
       tabItem(tabName = "spendtobach",
               fluidPage(
-
+                
                 
                 
                 plotOutput("plot1"), br(),
@@ -33,15 +33,19 @@ dashboardPage(
               )
       ),
       tabItem(tabName="sps",
-              fluidPage(
-                plotOutput("plot3"), br(), plotOutput("plot4")
-                
-              )),
-      tabItem(tabName="dingy",
-              fluidPage(
-                plotOutput("plot5"), br()
-                
-              )),
+              
+              plotOutput("plot3",
+                         click = "plot_click",
+                         dblclick = "plot_dblclick",
+                         hover = "plot_hover",
+                         brush = "plot_brush"
+                         
+                         
+              ),
+              plotOutput("plot4")
+      ),
+      tabItem(tabName = "dingy", 
+              fluidPage(plotOutput("plot5"), br())),
       tabItem(tabName="dingy2",
               fluidPage(
                 plotOutput("plot6"), br()

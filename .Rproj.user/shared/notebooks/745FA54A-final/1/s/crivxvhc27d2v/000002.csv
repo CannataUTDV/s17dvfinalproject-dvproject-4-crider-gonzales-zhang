@@ -2,11 +2,18 @@
 "2","Loading required package: jsonlite
 "
 "2","package ‘jsonlite’ was built under R version 3.3.3"
+"2","
+Attaching package: ‘jsonlite’
+
+"
+"2","The following object is masked from ‘package:shiny’:
+
+    validate
+
+"
 "2","Loading required package: RCurl
 "
 "2","Loading required package: bitops
-"
-"2","Loading required package: ggplot2
 "
 "2","* "
 "2","  Trying 128.83.144.203...
@@ -40,10 +47,11 @@ returnFor: JSON
 "2","Server: Werkzeug/0.11.4 Python/2.7.1b2
 "
 "2","< "
-"2","Date: Tue, 02 May 2017 03:15:18 GMT
+"2","Date: Tue, 02 May 2017 06:35:34 GMT
 "
 "2","< "
 "2","
 "
-"2","* Closing connection 0
+"2","* "
+"2","Closing connection 0
 "

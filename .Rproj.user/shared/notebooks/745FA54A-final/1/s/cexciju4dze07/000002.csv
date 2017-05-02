@@ -1,31 +1,4 @@
 "0","source('R_ETL.R')"
-"2","Loading required package: dplyr
-"
-"2","
-Attaching package: ‘dplyr’
-
-"
-"2","The following objects are masked from ‘package:stats’:
-
-    filter, lag
-
-"
-"2","The following objects are masked from ‘package:base’:
-
-    intersect, setdiff, setequal, union
-
-"
-"2","Loading required package: data.world
-"
-"2","
-Attaching package: ‘data.world’
-
-"
-"2","The following object is masked from ‘package:dplyr’:
-
-    query
-
-"
 "2","Duplicated column names deduplicated: 'State' => 'State_1' [17]"
 "1","Classes"
 "1"," "
