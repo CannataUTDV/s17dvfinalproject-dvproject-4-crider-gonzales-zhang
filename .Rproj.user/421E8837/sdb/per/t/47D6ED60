@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#ui.R\n\nrequire(shiny)\nrequire(shinydashboard)\n\ndashboardPage(\n  dashboardHeader(title = \"State Elementary Spending\"\n  ),\n  dashboardSidebar(\n    sidebarMenu(\n      menuItem(\"Spending to Bachelors\", tabName = \"spendtobach\", icon = icon(\"dashboard\")),\n      menuItem(\"Spending by State\", tabName = \"sps\", icon = icon(\"dashboard\")),\n      menuItem(\"Spending per Child\", tabName=\"dingy\",icon = icon(\"dashboard\")),\n      menuItem(\"Spending Per Child Boxplot\",tabName=\"dingy2\",icon=icon(\"dashboard\")),\n      menuItem(\"Income & Spending/Child\", tabName = \"income\", icon = icon(\"dashboard\"))\n\n    )\n  ),\n  dashboardBody(\n    tabItems(\n      # First tab content\n      tabItem(tabName = \"spendtobach\",\n              fluidPage(\n\n                \n                \n                plotOutput(\"plot1\"), br(),\n                plotOutput(\"plot2\")\n                \n                \n                \n                \n              )\n      ),\n      tabItem(tabName=\"sps\",\n              fluidPage(\n                plotOutput(\"plot3\"), br(), plotOutput(\"plot4\")\n                \n              )),\n      tabItem(tabName=\"dingy\",\n              fluidPage(\n                plotOutput(\"plot5\"), br()\n                \n              )),\n      tabItem(tabName=\"dingy2\",\n              fluidPage(\n                plotOutput(\"plot6\"), br()\n              )),\n      tabItem(tabName = \"income\", fluidPage(plotOutput(\"plot7\")))\n\n      \n    )\n  ))",
+    "created" : 1493689551398.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4094304134",
+    "id" : "47D6ED60",
+    "lastKnownWriteTime" : 1493689631,
+    "last_content_update" : 1493689631972,
+    "path" : "~/DataVisualization/Final/02 Shiny/ui.R",
+    "project_path" : "02 Shiny/ui.R",
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

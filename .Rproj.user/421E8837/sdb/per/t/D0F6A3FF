@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1493701225709.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D0F6A3FF",
+    "lastKnownWriteTime" : 0,
+    "last_content_update" : 1493701225709,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "5D434A61",
+        "caption" : "incomestuff",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=incomestuff&cache_key=5D434A61",
+        "displayedObservations" : 306,
+        "environment" : "",
+        "object" : "incomestuff",
+        "preview" : 0,
+        "totalObservations" : 306,
+        "variables" : 19
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

@@ -1,0 +1,49 @@
+"0","source('connect_to_rest_server.R')"
+"2","Loading required package: jsonlite
+"
+"2","package ‘jsonlite’ was built under R version 3.3.3"
+"2","Loading required package: RCurl
+"
+"2","Loading required package: bitops
+"
+"2","Loading required package: ggplot2
+"
+"2","* "
+"2","  Trying 128.83.144.203...
+"
+"2","* "
+"2","Connected to oraclerest.cs.utexas.edu (128.83.144.203) port 1738 (#0)
+> GET /rest/native/?query=%22select%20*%20from%20KEI_Avg%22 HTTP/1.1
+Host: oraclerest.cs.utexas.edu:1738
+Accept: */*
+DB: jdbc:data:world:sql:chriscrider:s-17-edv-project-3
+USER: gonzalez
+PASS: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcm9kLXVzZXItY2xpZW50OmdvbnphbGV6IiwiaXNzIjoiYWdlbnQ6Z29uemFsZXo6OmMwN2RkYmNkLTU3ZmEtNDBkNi04MzQwLTQ0NzJlYzI0OTBiMiIsImlhdCI6MTQ4NDY5NzMxOSwicm9sZSI6WyJ1c2VyX2FwaV93cml0ZSIsInVzZXJfYXBpX3JlYWQiXSwiZ2VuZXJhb"
+"2","C1wdXJwb3NlIjp0cnVlfQ.5mTuKVcV8fKTtPvvxxcyo-5TBGLGufXDQkIraPgCsuB4hc7mUj_editztVly63Yr4jxmvyvI-kUu07EvQnuZYw
+MODE: native_mode
+MODEL: model
+returnDimensions: False
+returnFor: JSON
+
+"
+"2","* "
+"2","HTTP 1.0, assume close after body
+< HTTP/1.0 200 OK
+"
+"2","< "
+"2","Content-Type: text/html; charset=utf-8
+"
+"2","< "
+"2","Content-Length: 37
+"
+"2","< "
+"2","Server: Werkzeug/0.11.4 Python/2.7.1b2
+"
+"2","< "
+"2","Date: Tue, 02 May 2017 03:15:18 GMT
+"
+"2","< "
+"2","
+"
+"2","* Closing connection 0
+"

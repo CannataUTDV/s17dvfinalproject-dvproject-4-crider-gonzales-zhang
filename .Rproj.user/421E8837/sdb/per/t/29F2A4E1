@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "require(dplyr)\nrequire(ggplot2)\nrequire(scales)\nrequire(data.world)\n\n\n\nsource(\"www/R_ETL.R\")\n\ndf1 <- data.frame(education)\n\ndf1$pps_abv_avg <- (df1$`X2014.PPCS` > mean(df1$`X2014.PPCS`))\ndf1$bach_abv_avg <- (df1$Bachelors > 500000)\ndf1$kpi_bach_ratio <- (df1$Bachelors / df1$`Current.Spending`)\nhighbardf <- dplyr::filter(df1, pps_abv_avg == TRUE)\nlowbardf <- dplyr::filter(df1, pps_abv_avg == FALSE)\n\n\n \nelementaryspending$State_1 <-NULL #removes duplicated states\nelementaryspending <-elementaryspending[-1,] #removes the united states section\n\ndf = data.frame(elementaryspending)\ndf$Spending_Per_Child <- (df$`Total.Spending..in.thousands`*1000/df$`Elementary.secondary.enrollment`)\n\ndf$Above_Median_SPC <- df$Spending_Per_Child > median(df$Spending_Per_Child)\n\ndf$Elementary_Enrollment_Average <- ifelse (df$Elementary.secondary.enrollment/df$State.population..in.thousands.<=mean(df$Elementary.secondary.enrollment/df$State.population..in.thousands.),\"Below Average Enrollment per State Population\",\"Above Average Enrollment per State Population\")\n\ndf5 = data.frame(elementaryspending)\ndf5$Spending_Per_Child <- (df5$Total.Spending..in.thousands.*1000/df5$Elementary.secondary.enrollment)\n\ndf5$Above_Median_SPC <- df5$Spending_Per_Child > median(df5$Spending_Per_Child)\n\ndf5$Elementary_Enrollment_Average <- ifelse (df5$Elementary.secondary.enrollment/df5$State.population..in.thousands.<=mean(df5$Elementary.secondary.enrollment/df5$State.population..in.thousands.),\"Below Average Enrollment per State Population\",\"Above Average Enrollment per State Population\")\n\nserver <- function(input, output) {\n\n  output$plot1 <- renderPlot({\n    ggplot(highbardf, aes(x=State, y=X2014.PPCS, fill=bach_abv_avg))+ \n\n      geom_bar(stat='identity') +\n      ylab('Per Child Spending') +\n      coord_flip() +\n      ggtitle('Bachcelors Performance - High Spending States') +\n      geom_text(aes(label=Bachelors))\n\n    \n  })\n  output$plot2 <- renderPlot({\n    ggplot(lowbardf, aes(x=State, y=X2014.PPCS, fill=bach_abv_avg)) + \n      geom_bar(stat='identity') +\n      ylab('Per Child Spending') +\n      coord_flip() +\n      ggtitle('Bachelors Performance - Low Spending States') + \n      geom_text(aes(label=Bachelors))\n  })\n  \n  output$plot3 <- renderPlot({\n       ggplot(df1) + geom_histogram(aes(x = `X2014.PPCS`, fill = I('dodgerblue4'), col=I('red'))) + \n      xlab('Per Child Spending') + \n      ylab('Bin of States') +\n      ggtitle('Per Pupil Spending Range')\n  })\n  \n  output$plot4 <- renderPlot({\n    ggplot(df1, aes(x=State,  y=kpi_bach_ratio, fill = kpi_bach_ratio)) + \n      geom_bar(stat='identity') + \n      theme(axis.text.x=element_text(angle=90, size=10, vjust=0.5))+\n      ylab('Bachelor Attainment to Spending Ratio') + \n      ggtitle('KPI Bachelor Ratio Performance by State')\n  })\n  output$plot5 <-renderPlot({ggplot(df) + geom_text(aes(x = Above_Median_SPC, y=State, label=Spending_Per_Child),size=3)+xlab(\"Above Median Spending Per Child\")+geom_tile(aes(x=Above_Median_SPC, y=State,fill=Elementary_Enrollment_Average), alpha=0.50)})\n\n  output$plot6 <-renderPlot({ ggplot(df5) +geom_boxplot(aes(x= df5$Above_Median_SPC,y = df5$Spending_Per_Child))})\n  \n  output$plot7<-renderPlot({ggplot(incomestuff, aes(x=Income, y=`2014 PPCS`)) + geom_point(shape=1) + geom_smooth(method=lm)+ scale_x_continuous(name=\"Income\", label=dollar)+scale_y_continuous(name=\"2014 PPCS\", label=dollar)})\n\n}",
+    "created" : 1493688939378.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4055645234",
+    "id" : "29F2A4E1",
+    "lastKnownWriteTime" : 1493701495,
+    "last_content_update" : 1493701495372,
+    "path" : "~/DataVisualization/Final/02 Shiny/server.R",
+    "project_path" : "02 Shiny/server.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

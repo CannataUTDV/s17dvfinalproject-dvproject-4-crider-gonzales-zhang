@@ -1,0 +1,3 @@
+This plot charts the relationship between gas prices and non-residential building construction from the beginning of the recession in 2008 until 2014. The plot shows that, afer a mutual initial dip, the two were inversely related during this time. 
+In 2013, however, something seems to have occurred that caused building construction to sharply increase while gasoline prices only gradually decreased. A graph like this can shed light on what may be particular times or events of interest
+in identifying economically significant events or trends. In this example the plot raises the question: What occured in 2013 to spark this sharp incline? Further data may be observed in this way in finding an answer.

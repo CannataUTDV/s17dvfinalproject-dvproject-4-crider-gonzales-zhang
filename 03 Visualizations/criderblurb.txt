@@ -1,0 +1,16 @@
+This plot charts the relationship between gas prices and non-residential building construction from the beginning of the recession in 2008 until 2014. The plot shows that, afer a mutual initial dip, the two were inversely related during this time. 
+
+In 2013, however, something seems to have occurred that caused building construction to sharply increase while gasoline prices only gradually decreased. A graph like this can identify or further describe economically significant events and trends. In this example the plot raises the question: What occured in 2013 to spark this sharp incline? While further analysis of other data has surely answered this question, this is a good demonstration of usefully applied data analylsis.
+
+To recreate this visualization in Tableau:
+1: Download the file Key_Economic_Indicators.csv from https://data.world/chriscrider/s-17-edv-project-3
+
+2: Open the file in Tableau and create a new sheet and ensure 'Aggregate Measures' is unabled under the analysis drop-down menu
+
+3: Add Year to the Columns field. Using the dropdown arrow on the 'Year' field to filter the year between 2007 and 2014
+
+4: Add the 'Non-Residential Building Construction' and 'Retail Gasoline Prices TX' pills onto columns
+
+5: Under the 'Show Me' drop-down, select 'dual lines'
+
+6: If not already, drag the 'Measure Names' pill onto the 'Color' icon under 'Marks'

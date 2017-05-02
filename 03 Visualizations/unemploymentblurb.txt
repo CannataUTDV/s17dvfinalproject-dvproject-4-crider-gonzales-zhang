@@ -1,0 +1,11 @@
+The graph for Unemployment in US and Texas shows a strong correlation between nationwide employment rate and state employment rate. 
+This details how changes in the US may have an effect on changes in the state. 
+As seen from the graph, there was a sharp rise in unemployment rate from 2008 to 2009 which occurred due
+to the Recession of 2008. From 2010 to 2017 onward, it shows the U.S and Texas recovering from this
+period of unemployment.
+
+To rebuild the graph in Tableau, first select the unemploymentTXandUSA_Ding.csv file downloaded from data.world.
+Next, select the Measure Unemployment TX and drag it onto the rows and drag the Unemployment US onto the right side
+of the sheet. Then drag the Dimension Date onto the columns. In analysis, deselect aggregate measures and in
+the show me tab select dual combination. Afterward, double click on YEAR(Date) in the columns and change the year to months.
+Lastly, double click on the x axis and change the axis title from month of date to Year.
