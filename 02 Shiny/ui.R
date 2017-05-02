@@ -4,7 +4,7 @@ require(shiny)
 require(shinydashboard)
 
 dashboardPage(
-  dashboardHeader(title = "State Elementary Spending"
+  dashboardHeader(title = "Economic Factors and Education"
   ),
   dashboardSidebar(
     sidebarMenu(
